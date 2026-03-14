@@ -1,0 +1,23 @@
+name: download-pokemon-decklist
+
+on:
+  schedule:
+    - cron: '0 4 * * 1' 
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  download-and-push:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4   
+    - name: curl-download
+      run: curl -L -o decklist.pdf https://www.pokemon.com/static-assets/content-assets/cms2/pdf/play-pokemon/rules/play-pokemon-deck-list-85x11.pdf
+    - name: repo-commit-and-push
+      run: |
+        git config --global user.name 'From GitHub Actions'
+        git config --global user.email 'simran.thind@outlook.com'
+        git commit -am "Automated refresh/download of decklist"
+        git push
