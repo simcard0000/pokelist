@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4   
     - name: curl-download
-      run: curl -o decklist.pdf https://www.pokemon.com/static-assets/content-assets/cms2/pdf/play-pokemon/rules/play-pokemon-deck-list-85x11.pdf
+      run: curl --trace-ascii - -o decklist.pdf https://www.pokemon.com/static-assets/content-assets/cms2/pdf/play-pokemon/rules/play-pokemon-deck-list-85x11.pdf
     - name: repo-commit-and-push
       run: |
         git config --global user.name 'From GitHub Actions'
