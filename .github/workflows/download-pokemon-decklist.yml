@@ -19,5 +19,6 @@ jobs:
       run: |
         git config --global user.name 'From GitHub Actions'
         git config --global user.email 'simran.thind@outlook.com'
+        git add decklist.pdf
         git commit -am "Automated refresh/download of decklist"
         git push
