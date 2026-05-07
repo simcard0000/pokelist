@@ -12,15 +12,15 @@ jobs:
   download-and-push:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4   
-    - name: file-download
+    - uses: actions/checkout@v4
+    - uses: sozo-design/curl@v1.0.2
+      with:
+          args: --trace-ascii - -o decklist.pdf https://www.pokemon.com/static-assets/content-assets/cms2/pdf/play-pokemon/rules/play-pokemon-deck-list-85x11.pdf
       # run: curl --trace-ascii - -o decklist.pdf https://www.pokemon.com/static-assets/content-assets/cms2/pdf/play-pokemon/rules/play-pokemon-deck-list-85x11.pdf
-      # run: wget --verbose -r -nd -np -A "play-pokemon-deck-list-85x11.pdf" -O decklist.pdf https://www.pokemon.com/us/play-pokemon/about/tournaments-rules-and-resources
-      run: wget --verbose -r -nd -np -erobots=off -A "play-pokemon-deck-list-85x11.pdf" https://www.pokemon.com/us/play-pokemon/about/tournaments-rules-and-resources
     - name: repo-commit-and-push
       run: |
         git config --global user.name 'From GitHub Actions'
         git config --global user.email 'simran.thind@outlook.com'
-        git add play-pokemon-deck-list-85x11.pdf
+        git add decklist.pdf
         git commit -am "Automated refresh/download of decklist"
         git push
