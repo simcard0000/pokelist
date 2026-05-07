@@ -15,7 +15,7 @@ jobs:
     - uses: actions/checkout@v4
     - uses: sozo-design/curl@v1.0.2
       with:
-          args: -L -o decklist.pdf https://example.com-o decklist.pdf https://www.pokemon.com/static-assets/content-assets/cms2/pdf/play-pokemon/rules/play-pokemon-deck-list-85x11.pdf
+          args: -L -o decklist.pdf https://www.pokemon.com/static-assets/content-assets/cms2/pdf/play-pokemon/rules/play-pokemon-deck-list-85x11.pdf
       # run: curl --trace-ascii -o decklist.pdf https://www.pokemon.com/static-assets/content-assets/cms2/pdf/play-pokemon/rules/play-pokemon-deck-list-85x11.pdf
     - name: repo-commit-and-push
       run: |
