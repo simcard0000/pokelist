@@ -16,11 +16,11 @@ jobs:
     - name: file-download
       # run: curl --trace-ascii - -o decklist.pdf https://www.pokemon.com/static-assets/content-assets/cms2/pdf/play-pokemon/rules/play-pokemon-deck-list-85x11.pdf
       # run: wget --verbose -r -nd -np -A "play-pokemon-deck-list-85x11.pdf" -O decklist.pdf https://www.pokemon.com/us/play-pokemon/about/tournaments-rules-and-resources
-      run: wget --verbose -r -nd -np -erobots=off -A "play-pokemon-deck-list-85x11.pdf" -O decklist.pdf https://www.pokemon.com/us/play-pokemon/about/tournaments-rules-and-resources
+      run: wget --verbose -r -nd -np -erobots=off -A "play-pokemon-deck-list-85x11.pdf" https://www.pokemon.com/us/play-pokemon/about/tournaments-rules-and-resources
     - name: repo-commit-and-push
       run: |
         git config --global user.name 'From GitHub Actions'
         git config --global user.email 'simran.thind@outlook.com'
-        git add decklist.pdf
+        git add play-pokemon-deck-list-85x11.pdf
         git commit -am "Automated refresh/download of decklist"
         git push
